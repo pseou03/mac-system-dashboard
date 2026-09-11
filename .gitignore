@@ -4,3 +4,4 @@
 data/process_top20.csv
 __pycache__/
 *.pyc
+data/.process_top20.*

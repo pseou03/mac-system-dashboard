@@ -1,0 +1,9 @@
+collected_at,pid,ppid,cpu_percent,memory_percent,elapsed,user,command
+2026-09-11 09:00:00,1201,1,28.4,4.2,01:12:30,demo,Browser
+2026-09-11 09:00:00,1202,1,14.8,6.1,02:05:10,demo,CodeEditor
+2026-09-11 09:00:00,1203,1,8.2,1.3,00:35:12,demo,Terminal
+2026-09-11 09:00:00,1204,1,5.0,0.8,03:40:00,service,SystemService
+2026-09-11 09:00:00,1205,1,2.5,2.2,00:08:04,demo,"SampleWorker, batch"
+2026-09-11 09:00:00,1206,1,1.0,3.4,00:40:20,demo,"MediaService ""Preview"""
+2026-09-11 09:00:00,1207,1,0.4,0.3,04:00:00,service,BackgroundAgent
+2026-09-11 09:00:00,1208,1,0.0,0.1,00:01:10,demo,IdleWorker
