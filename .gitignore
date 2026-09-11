@@ -1,0 +1,6 @@
+.DS_Store
+.env
+*.log
+data/process_top20.csv
+__pycache__/
+*.pyc
