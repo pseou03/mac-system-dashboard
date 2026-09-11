@@ -1,5 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>About | Mac System Dashboard</title><link rel="stylesheet" href="../assets/css/style.css"></head>
-<body><header><strong>Mac System Dashboard</strong><nav aria-label="Main"><a href="overview.html">Overview</a><a href="processes.html">Processes</a><a href="about.html">About</a></nav></header><main class="container"><h1>About</h1><p>Learn how system data becomes a dashboard.</p><p>macOS → Shell → CSV → JavaScript → Dashboard</p></main></body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A local macOS process snapshot with CPU and memory metrics.">
+  <title>About | Mac System Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%23142a43%22/%3E%3Cpath%20d%3D%22M6%2023V15h4v8zm8%200V8h4v15zm8%200V12h4v11z%22%20fill%3D%22%2365c5ff%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+<body class="dashboard-shell">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">M</span> Mac System <br>Dashboard</div>
+    <nav aria-label="Main">
+      <a href="../index.html">Dashboard</a>
+      <a href="../pages/processes.html">Processes</a>
+      <a aria-current="page" href="../pages/about.html">About</a>
+    </nav>
+    <p class="sidebar-note">LOCAL SNAPSHOT<br>macOS process monitor</p>
+  </aside>
+  <main id="main" class="workspace">
+    <p class="eyebrow">ABOUT THE PROJECT</p><h1>A small system data pipeline</h1>
+    <p class="subtitle">Follow a process snapshot from this Mac to the browser.</p>
+    <section class="card prose"><h2>How it works</h2>
+      <ol><li><strong>macOS → Shell.</strong> A read-only collector asks ps for process names and resource usage.</li>
+      <li><strong>Shell → CSV.</strong> The 20 highest-CPU processes become a timestamped, structured file.</li>
+      <li><strong>CSV → HTTP → JavaScript.</strong> The local server delivers the snapshot and the browser parses it.</li>
+      <li><strong>JavaScript → Dashboard.</strong> Tables, metrics and charts describe the collected records.</li>
+      <li><strong>launchd → Shell.</strong> An optional daily user agent refreshes the file at 09:00.</li></ol>
+    </section>
+    <section class="card prose"><h2>Reading the numbers</h2><p>This is a snapshot of up to 20 busy processes, not an inventory of every process or a measure of total system load. CPU usage can exceed 100% for a process using multiple cores. Memory percentages describe each process’s share of physical memory.</p><p>Reload snapshot reads the CSV again; run the collector to measure newer data. The dashboard clearly labels demonstration data when the local file is unavailable.</p></section>
+    <section class="card prose"><h2>Privacy and learning</h2><p>Real process data stays in an ignored local CSV. Only fictional sample records are committed. The collector uses executable names/paths rather than full command arguments.</p><p><a href="../learning/step1.html">Step 1: HTML</a> · <a href="../learning/step2.html">Step 2: Internal CSS</a> · <a href="overview.html">Step 3: Shared CSS</a></p></section>
+  </main>
+</body>
 </html>

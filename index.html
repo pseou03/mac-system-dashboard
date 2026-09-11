@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A local macOS process snapshot with CPU and memory metrics.">
-  <title>Processes | Mac System Dashboard</title>
+  <title>System Engineer Dashboard | Mac System Dashboard</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%23142a43%22/%3E%3Cpath%20d%3D%22M6%2023V15h4v8zm8%200V8h4v15zm8%200V12h4v11z%22%20fill%3D%22%2365c5ff%22/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <script type="module" src="../assets/js/app.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="module" src="assets/js/app.js"></script>
 </head>
 <body class="dashboard-shell">
   <a class="skip-link" href="#main">Skip to content</a>
   <aside class="sidebar">
     <div class="brand"><span class="brand-mark" aria-hidden="true">M</span> Mac System <br>Dashboard</div>
     <nav aria-label="Main">
-      <a href="../index.html">Dashboard</a>
-      <a aria-current="page" href="../pages/processes.html">Processes</a>
-      <a href="../pages/about.html">About</a>
+      <a aria-current="page" href="index.html">Dashboard</a>
+      <a href="pages/processes.html">Processes</a>
+      <a href="pages/about.html">About</a>
     </nav>
     <p class="sidebar-note">LOCAL SNAPSHOT<br>macOS process monitor</p>
   </aside>
   <main id="main" class="workspace">
-    <div class="page-heading"><div><p class="eyebrow">MAC SYSTEM DASHBOARD</p><h1>Processes</h1></div><button id="reload-data" type="button">Reload snapshot</button></div>
+    <div class="page-heading"><div><p class="eyebrow">MAC SYSTEM DASHBOARD</p><h1>System Engineer Dashboard</h1></div><button id="reload-data" type="button">Reload snapshot</button></div>
     <p class="subtitle">CPU and memory usage from up to 20 processes, ranked at collection time.</p>
     <p class="updated">Last Updated <time id="last-updated">—</time></p>
     <p id="data-status" role="status" aria-live="polite">Loading process data…</p>
@@ -32,6 +32,10 @@
       <article class="card"><h2>Average CPU</h2><p id="metric-cpu-average">—</p></article>
       <article class="card"><h2>Highest Memory</h2><p id="metric-memory-max">—</p></article>
       <article class="card"><h2>Average Memory</h2><p id="metric-memory-average">—</p></article>
+    </section>
+    <section class="charts" aria-label="Resource charts">
+      <article class="card"><h2>Top 10 CPU Processes</h2><div id="cpu-chart"><p class="muted">Chart added in the charts learning stage.</p></div></article>
+      <article class="card"><h2>Top 10 Memory Processes</h2><div id="memory-chart"><p class="muted">Chart added in the charts learning stage.</p></div></article>
     </section>
     <section aria-labelledby="process-heading">
       <div class="section-heading"><h2 id="process-heading">Process snapshot</h2><span id="visible-count" role="status"></span></div>

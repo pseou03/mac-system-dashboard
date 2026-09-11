@@ -44,21 +44,42 @@ export function renderTable(records, body) {
   }
 }
 
+function renderSummary(records) {
+  const set = (id, value) => { const element = document.getElementById(id); if (element) element.textContent = value; };
+  set('metric-count', records.length);
+  for (const [name, field] of [['cpu', 'cpu_percent'], ['memory', 'memory_percent']]) {
+    const values = records.map(record => record[field]);
+    set(`metric-${name}-max`, records.length ? Math.max(...values).toFixed(1) + '%' : '—');
+    set(`metric-${name}-average`, records.length ? (values.reduce((sum, value) => sum + value, 0) / records.length).toFixed(1) + '%' : '—');
+  }
+  set('last-updated', records[0]?.collected_at ?? '—');
+  set('visible-count', `${records.length} collected processes`);
+}
+
 async function start() {
   const status = document.querySelector('#data-status');
   const body = document.querySelector('#process-rows');
   if (!status || !body) return;
   status.textContent = 'Loading process data…';
+  const reload = document.querySelector('#reload-data');
+  if (reload) reload.disabled = true;
   try {
     const data = await loadProcesses();
     status.textContent = data.message;
     status.dataset.source = data.source;
     renderTable(data.records, body);
+    renderSummary(data.records);
   } catch (error) {
     status.textContent = error.message;
     status.dataset.source = 'error';
     renderTable([], body);
+    renderSummary([]);
+  } finally {
+    if (reload) reload.disabled = false;
   }
 }
 
-if (typeof document !== 'undefined') start();
+if (typeof document !== 'undefined') {
+  document.querySelector('#reload-data')?.addEventListener('click', start);
+  start();
+}
